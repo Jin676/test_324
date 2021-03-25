@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function fun(n,o){
+            console.log("n:"+n,"o:"+o);
+            return{
+                fun:function(m){
+                    return fun(m,n)
+                }
+            }
+        }
+        var a= fun(0) //n:0 o:undefined
+        a.fun(1) //M:1 N:0 n:1 o:0 
+        a.fun(2)//M:2 N:0  n:2 o:0
+        a.fun(3)//M:3 N:0  N:3 o:0
+
+
+        var b = fun(0).fun(1).fun(2).fun(3)
+        //n:0 o:undefined
+        //M:1 N:0  n:1 o:0
+        //M:2 N:1  n:2 o:1
+        //M:3 N:2  n:3 o:2
+        var c = fun(0).fun(1)
+        c.fun(2)  //都是调用fun(0).fun(1)返回的对象
+        c.fun(3)  //都是调用fun(0).fun(1)返回的对象
+        //n:0 o:undefined
+         //M:1 N:0  n:1 o:0
+
+         //M:2 N:1  n:2 o:1
+         //M:3 N:1  n:3 o:1
+    </script>
+</body>
+</html>
