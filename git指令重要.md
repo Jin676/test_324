@@ -61,5 +61,7 @@ git pull 拉取(无法对远程跟踪)
 ------------
 创建分支和远程联系流程
 git remote add origin https://github.com/Jin676/test_324.git
+
+远程创建分支
 git branch -M main
 git push -u origin main
